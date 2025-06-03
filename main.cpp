@@ -1,5 +1,9 @@
 #include <iostream>
 #include <ctime>
+#include "csv.hpp"
+#include <string.h>
+#include <windows.h>
+
 
 using namespace std;
 
@@ -8,9 +12,8 @@ string dataAtual();
 
 int main(){
 
-    cout << dataAtual();
-
-    return 0;
+    SetConsoleOutputCP(CP_UTF8);
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
 
 }
@@ -27,4 +30,3 @@ string dataAtual(){
 
     return dataFormatada;
 }
-
