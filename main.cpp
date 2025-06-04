@@ -20,6 +20,8 @@ int main(){
 
     string data = dataAtual();
 
+    string palavraDia;
+
     while(getline(arquivo, linha)){
         stringstream ss(linha);
 
@@ -28,12 +30,34 @@ int main(){
         while(getline(ss, valor, ',')){
             if(valor == data){
                 while(getline(ss,valor)){
-                    cout << valor;
-                }
 
+                    palavraDia = valor;
+
+
+                }
             }
         }
     }
+
+    cout << "-=-=-=-=-=-=TERMO=-=-=-=-=-=-" << endl;
+
+    string palavraUsuario;
+
+    cin >> palavraUsuario;
+
+    if (sizeof(palavraUsuario) != 5){
+
+        cout << "O jogo TERMO aceita apenas palavras com 5 letras";
+        return 1;
+
+    }
+
+    for(int tent = 0; tent <= 5; tent++){
+
+    }
+
+    return 0;
+    
 }
 
 
