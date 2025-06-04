@@ -9,6 +9,8 @@ using namespace std;
 
 string dataAtual();
 
+void mudarCor(const string& letra, int corANSI);
+
 int main(){
 
     SetConsoleOutputCP(CP_UTF8);
@@ -42,24 +44,30 @@ int main(){
     cout << "-=-=-=-=-=-=TERMO=-=-=-=-=-=-" << endl;
 
     string palavraUsuario;
-
-    cin >> palavraUsuario;
-
-    if (sizeof(palavraUsuario) != 5){
-
-        cout << "O jogo TERMO aceita apenas palavras com 5 letras";
-        return 1;
-
-    }
-
+    
     for(int tent = 0; tent <= 5; tent++){
 
+        cin >> palavraUsuario;
+
+        if (palavraUsuario.size() != 5){
+        
+        cout << "O jogo TERMO aceita apenas palavras com 5 letras";
+        return 1;
+            
+        }
+
+        for(int l = 0; l<=4; l++){
+            if(palavraUsuario[l] == palavraDia[l]){
+                
+            }else{
+                cout << palavraUsuario[l];
+            }
+        }
     }
 
     return 0;
     
 }
-
 
 
 string dataAtual(){
@@ -73,4 +81,10 @@ string dataAtual(){
     strftime(dataFormatada, sizeof(dataFormatada), "%d/%m/%Y", tempo);
 
     return dataFormatada;
+}
+
+void mudarCor(const string& letra, int corANSI){
+
+    cout << "\033[" << corANSI << "m" << letra << "\033[0m";
+
 }
