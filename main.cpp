@@ -1,7 +1,5 @@
 #include <iostream>
 #include <ctime>
-#include <string.h>
-#include <windows.h>
 #include <fstream>
 #include <sstream>
 
@@ -9,24 +7,18 @@ using namespace std;
 
 string dataAtual();
 
-void mudarCor(const string& letra, int corANSI);
+void mudarCor(char letra, int corANSI);
 
 int main(){
-
-    SetConsoleOutputCP(CP_UTF8);
-    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     ifstream arquivo("palavras.csv");
 
     string linha;
-
     string data = dataAtual();
-
     string palavraDia;
 
     while(getline(arquivo, linha)){
         stringstream ss(linha);
-
         string valor;
 
         while(getline(ss, valor, ',')){
@@ -34,7 +26,6 @@ int main(){
                 while(getline(ss,valor)){
 
                     palavraDia = valor;
-
 
                 }
             }
@@ -73,7 +64,6 @@ int main(){
 string dataAtual(){
 
     time_t agora = time(0);
-
     tm* tempo = localtime(&agora);
 
     char dataFormatada[11];
@@ -83,7 +73,7 @@ string dataAtual(){
     return dataFormatada;
 }
 
-void mudarCor(const string& letra, int corANSI){
+void mudarCor(char letra, int corANSI){
 
     cout << "\033[" << corANSI << "m" << letra << "\033[0m";
 
