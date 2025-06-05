@@ -2,12 +2,18 @@
 #include <ctime>
 #include <fstream>
 #include <sstream>
+#include <thread>
+#include <chrono>
 
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
 
 string dataAtual();
 
 void mudarCor(char letra, int corANSI);
+
+void limparLinhaAnterior();
 
 int main(){
 
@@ -38,7 +44,9 @@ int main(){
     
     for(int tent = 0; tent <= 5; tent++){
 
+        cout << endl;
         cin >> palavraUsuario;
+
 
         if (palavraUsuario.size() != 5){
         
@@ -49,11 +57,16 @@ int main(){
 
         for(int l = 0; l<=4; l++){
             if(palavraUsuario[l] == palavraDia[l]){
+
+                mudarCor(palavraUsuario[l],32);
+                sleep_for(milliseconds(100)); 
                 
             }else{
-                cout << palavraUsuario[l];
+                cout << palavraUsuario[l] << flush;
+                sleep_for(milliseconds(100)); 
             }
         }
+
     }
 
     return 0;
@@ -75,6 +88,11 @@ string dataAtual(){
 
 void mudarCor(char letra, int corANSI){
 
-    cout << "\033[" << corANSI << "m" << letra << "\033[0m";
+    cout << "\033[" << corANSI << "m" << letra << "\033[0m" << flush;
 
+}
+
+void limparLinhaAnterior(){
+
+    cout << "\033[F" << "\033[2K" << endl;
 }
