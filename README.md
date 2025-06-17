@@ -47,7 +47,6 @@ programa.exe
 
 > Você pode rodar o arquivo diretamente no terminal (cmd ou PowerShell), ou dando duplo clique no `programa.exe`.
 
-## 👨‍💻 Créditos
+## Participantes
 
 Projeto desenvolvido por [**Gabriel Henrique, João Matheus, Murilo Pavanello**]  
-Disciplina: **Algoritmos e Programação**  
